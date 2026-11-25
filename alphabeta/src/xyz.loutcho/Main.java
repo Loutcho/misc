@@ -6,6 +6,31 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+
+/**
+ * We are going to subdivide the [0, 1] interval.
+ * As parameters we need two real numbers, alpha and beta (barycentric weights), elements of [0, 1].
+ *
+ * Let's start with x0 = 0 and x1 = 1 and mark x1 as being the current x_last.
+ * 
+ * The rule to create a new x when one has a subdivision of [0, 1],
+ * namely 0 = x_0 < x_1 < x_2 < ... < x_n} = 1, is the following:
+ * find the index i that maximizes | x_{i+1} - x_i |
+ * x will be in [x_i, x_{i+1}]
+ * if x will be less than x_last
+ * then define x as: (1 - alpha) * x_i + (alpha) * x_{i + 1}
+ * else define x as: (1 - beta) * x_i + (beta) * x_{i + 1}
+ * Insert x in the list of the x_k (and renumber this list for the next iteration).
+ *
+ * This program illustrates this process by creating a picture of the [0, 1] X [0, 1] square, where the coordinates are (affine conversions of) alpha and beta.
+ * For each pixel, a different ordered pair (alpha, beta) is tried.
+ * Take N iterations.
+ * Color the pixel depending on:
+ * - the last computed x
+ * - the number of iterations where the rule chose the branch with alpha
+ * - the number of iterations where the rule chose the branch with beta
+ * 
+ */
 public class Main {
 
 	private static final int XSIZE = 192 * 20;

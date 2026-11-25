@@ -4,3 +4,4 @@ Miscellaneous programs
 - a prog (Prolog) to solve the "missionaries and cannibals" problem
 - a prog (Java) to generate a PNG that illustrates the quasi-pythagorean triples
 - a prog (Java) to compute the number of regions of the plane delimited by an arrangement of lines described by their equations
+- a prog (Java) to illustrate the state after n iterations of an algorithm that splits [0, 1] into subintervals according to a parameterized(alpha, beta) rule
